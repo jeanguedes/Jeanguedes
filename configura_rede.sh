@@ -5,15 +5,15 @@ usuario=`id -u`
 HEIGHT=15
 WIDTH=60
 CHOICE_HEIGHT=40
-BACKTITLE="Bem-vindo a configurador do Guedes"
-TITLE="Configurar REDE"
+BACKTITLE="Bem-vindo a configurador de rede - Prof - Diego Tumelero"
+TITLE="Configurar REDE SSH"
 MENU="Escolha uma das opcoes:"
 
 while true
 do
 	OPTIONS=(1 "Configurar minha placa de rede para DHCP"
-       		 2 "Alterar o nome do computador para nome"
-        	3 "Alterar o nome do computador para nome_sobrenome"
+       		 2 "Alterar o nome do computador"
+        	3 "Alterar o nome e sobrenome do computador"
 		4 "Sair")
 
 	CHOICE=$(dialog --clear \
