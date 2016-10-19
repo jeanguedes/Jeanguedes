@@ -1,21 +1,21 @@
 #!/bin/bash
-
+#Setando variável para capturar o tipo de usuário
 usuario=`id -u`
-
+#Editando Tamanho da Barra de Menu
 HEIGHT=15
 WIDTH=60
 CHOICE_HEIGHT=40
 BACKTITLE="Bem-vindo a configurador de rede - Prof - Diego Tumelero"
 TITLE="Configurar REDE SSH"
 MENU="Escolha uma das opcoes:"
-
+#criando uma regra de repetição "faça enquanto" 
 while true
 do
 	OPTIONS=(1 "Configurar minha placa de rede para DHCP"
        		 2 "Alterar o nome do computador"
         	3 "Alterar o nome e sobrenome do computador"
 		4 "Sair")
-
+#Criando menu para as opçoes em Dialog
 	CHOICE=$(dialog --clear \
                 --backtitle "$BACKTITLE" \
                 --title "$TITLE" \
@@ -25,10 +25,13 @@ do
                 )
 
 	clear
+#Criando Case para as opções a serem escolhidas
 	case $CHOICE in
+	#Case criado para saber se o usuario é padrão ou root
         	1)
 			if [ $usuario -eq 0 ]
 			then
+			#
 				ip link set dev eth0 down 2>&1 > /tmp/temp.txt
 				dhclient eth0 2>&1 >> /tmp/temp.txt
 				ip r s 2>&1 >> /tmp/temp.txt
